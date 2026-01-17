@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Media Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Universal Media Player</h1>
+            <p class="subtitle">Play videos, audio, and images from your device</p>
+        </header>
+
+        <div class="file-selector">
+            <label for="fileInput" class="file-button" id="fileButton">
+                📁 Select Media Files
+            </label>
+            <input type="file" id="fileInput" multiple accept="video/*,audio/*,image/*" style="display: none;">
+            <button class="clear-button" id="clearButton">🗑️ Clear All</button>
+        </div>
+
+        <div class="player-section" id="playerSection" style="display: none;">
+            <!-- Video Player -->
+            <div id="videoContainer" class="media-container" style="display: none;">
+                <video id="videoPlayer" controls preload="metadata"></video>
+            </div>
+
+            <!-- Audio Player -->
+            <div id="audioContainer" class="media-container" style="display: none;">
+                <div class="audio-visualizer">
+                    <div class="audio-icon">🎵</div>
+                    <div class="audio-info">
+                        <h2 id="audioTitle">Audio Track</h2>
+                    </div>
+                </div>
+                <audio id="audioPlayer" controls preload="metadata"></audio>
+            </div>
+
+            <!-- Image Viewer -->
+            <div id="imageContainer" class="media-container" style="display: none;">
+                <img id="imageViewer" alt="Image">
+            </div>
+
+            <!-- Media Controls -->
+            <div class="controls">
+                <button class="control-btn" id="prevBtn" title="Previous (←)">⏮️ Previous</button>
+                <button class="control-btn" id="playPauseBtn" title="Play/Pause (Space)">⏯️ Play/Pause</button>
+                <button class="control-btn" id="nextBtn" title="Next (→)">⏭️ Next</button>
+                <button class="control-btn" id="fullscreenBtn" title="Fullscreen (F)">🖥️ Fullscreen</button>
+            </div>
+
+            <!-- Current Playing Info -->
+            <div class="now-playing">
+                <span id="nowPlayingText">Now Playing: </span>
+                <span id="currentFileIndex"></span>
+            </div>
+        </div>
+
+        <div class="playlist-section" id="playlistSection" style="display: none;">
+            <h2>📋 Playlist (<span id="playlistCount">0</span> items)</h2>
+            <ul class="playlist" id="playlist"></ul>
+        </div>
+
+        <div class="instructions">
+            <h3>Keyboard Shortcuts:</h3>
+            <ul>
+                <li><strong>Space</strong> - Play/Pause</li>
+                <li><strong>← →</strong> - Previous/Next</li>
+                <li><strong>F</strong> - Fullscreen</li>
+                <li><strong>M</strong> - Mute/Unmute</li>
+                <li><strong>↑ ↓</strong> - Volume Up/Down</li>
+            </ul>
+            <h3>Supported Formats:</h3>
+            <ul>
+                <li><strong>Video:</strong> MP4, WebM, OGG, MKV, AVI, MOV</li>
+                <li><strong>Audio:</strong> MP3, WAV, OGG, FLAC, AAC, M4A</li>
+                <li><strong>Image:</strong> JPG, PNG, GIF, WebP, SVG, BMP</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
